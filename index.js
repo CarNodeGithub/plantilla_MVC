@@ -1,1 +1,5 @@
-require('./config/server')
+const { Server } = require('./config/server')
+
+const servidor = new Server()
+
+servidor.iniciar()

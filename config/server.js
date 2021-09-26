@@ -6,6 +6,7 @@ require('dotenv').config()
 const express = require('express')
 //const app = express()
 const path = require('path')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const indexRouter = require('../routes/rutas')
 
@@ -16,8 +17,9 @@ const indexRouter = require('../routes/rutas')
 class Server {
 
   constructor() {
+    
     this.app = express();
-    //this.conexion()
+    this.conexion()
     this.config()
     this.middlewares();
     this.routes();
@@ -25,17 +27,23 @@ class Server {
 
   }
 
-  conexion(){
+  async conexion(){
     // Crear conexion a la db e importar modelo
-    require('../models/Proyectos')
-    const db = require('../config/db')
-    db.sync()
-      .then( () => console.log('Conectado al Servidor de DB'))
-      .catch( error => console.log(error) )
-  }
+    //require('../models/Proyectos')
+    const { db } = require('../database/db')
+    try {
+      await db.sync( )
+       console.log(`Conectado a la base de datos: ${process.env.DB_NAME}`)
+    } 
+    catch (error) {
+      console.log(error)
+    }
+  }  
+
   middlewares() {
     this.app.use(bodyParser.json())
     this.app.use(bodyParser.urlencoded({ extended: true }))
+    this.app.use(cors())
 
     //Pasar vardump a la app
     this.app.use( ( req, res, next )=>{
@@ -69,4 +77,6 @@ class Server {
   }
 }
 
-module.exports =  new Server().iniciar();
+module.exports =  {
+  Server
+}

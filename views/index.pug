@@ -2,3 +2,8 @@ extends layout
 
 block contenido
         h2 Funcionando
+        ul
+            if(movimientos)
+                each movimiento in movimientos 
+                    li #{movimiento.concepto}
+        

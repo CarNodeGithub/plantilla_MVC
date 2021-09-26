@@ -1,10 +1,11 @@
 const router = require('express').Router()
-const indexController = require('../controllers/indexController')
+const { home, datosEjemplo } = require('../controllers/indexController')
 
 
 module.exports = () => {
 
-    router.get('/', indexController.home)
+    router.get('/', home)
+    router.get('/ejemplo', datosEjemplo)
     
 
     return router

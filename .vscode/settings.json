@@ -1,0 +1,29 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#06360D",
+        "titleBar.activeBackground": "#094B12",
+        "titleBar.activeForeground": "#F1FDF3"
+    },
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "UpTasks",
+            "database": "UpTasks",
+            "username": "root",
+            "password": "jhonykk"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Movimientos",
+            "database": "${workspaceFolder:Movimientos_1}/gestionDB.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
