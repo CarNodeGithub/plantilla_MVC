@@ -1,9 +1,37 @@
-extends layout 
+extends layout
+
 
 block contenido
-        h2 Funcionando
-        ul
-            if(movimientos)
-                each movimiento in movimientos 
-                    li #{movimiento.concepto}
-        
+    .card.m-3.shadow
+        .card-header.d-flex.justify-content-between
+            h3 Movimientos
+            p.mt-1
+                a.btn.btn-danger.btn-sm.shadow-lg(href='/nuevo') Nuevo
+        .card-body
+            
+            table.table.table-hover.table-striped.table-bordered
+                thead.bg-dark.text-white
+                    tr
+                    th(scope='col') #
+                    th(scope='col') Tipo
+                    th(scope='col') Concepto
+                    th(scope='col') Importe
+                    th(scope='col') Fecha
+                    th.text-center(scope='col') Acciones
+
+                tbody
+                    if(movimientos)
+                        each movimiento in movimientos
+                            tr
+                            th(scope='row') #{movimiento.id}
+                            td #{movimiento.tipo}
+                            td #{movimiento.concepto}
+                            td #{movimiento.importe} CHF
+                            td #{movimiento.fecha}
+                            td.d-flex.justify-content-evenly
+                                a.btn.btn-primary.btn-sm.shadow-lg(href='#') Nuevo
+                                a.btn.btn-primary.btn-sm.shadow-lg(href='#') Nuevo
+                                a.btn.btn-primary.btn-sm.shadow-lg(href='#') Nuevo
+
+
+            

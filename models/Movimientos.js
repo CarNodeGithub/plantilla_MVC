@@ -7,6 +7,9 @@ const Movimientos = db.define('movimientos',{
         primaryKey: true,
         autoIncrement: true
     },
+    tipo:{
+        type:DataTypes.STRING
+    },
     concepto: {
         type: DataTypes.STRING,
         allowNull: false

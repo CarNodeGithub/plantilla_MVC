@@ -1,0 +1,44 @@
+extends layout 
+
+block contenido
+
+    .col-8.mx-auto
+        .card.m-3.shadow
+            .card-header.d-flex.justify-content-between
+                h3 #{ titulo }
+               
+            .card-body
+                form(action='/nuevo-movimiento' method='POST')
+                    div.d-flex.justify-content-between
+
+                        .mb-3
+                            label.form-label Tipo 
+                            select.form-select.form-select.mb-3( style="width: 20rem;" name = 'tipo')
+                                option(value='Ingreso') Ingreso
+                                option(value='Gasto') Gasto
+                                
+                        .mb-3
+                            label.form-label Fecha
+                            input.form-control(type='date' style="width: 20rem;" name = 'fecha')
+
+                    div.d-flex.justify-content-between
+                        .mb-3 
+                            
+                            label.form-label Concepto
+                            input.form-control.form-control(type='text' style="width: 38rem;" name = 'concepto')
+                        
+                        .mb-3
+                            
+                            label.form-label Importe
+                            input.form-control.form-control(type='number' style="width: 10rem;" name = 'importe')
+
+                    p.mt-1
+                        input#btnGuardar.btn.btn-outline-success.btn-sm(type='submit' value = 'Guardar') 
+
+    
+    
+   
+
+
+
+    
